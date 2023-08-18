@@ -3,9 +3,9 @@
 # ex: ts=8 sw=4 sts=4 et filetype=sh
 
 check() {
-    require_binaries /usr/bin/mount
-    require_binaries /usr/bin/umount
-    require_binaries /usr/sbin/mkfs.xfs
+    require_binaries /bin/mount
+    require_binaries /bin/umount
+    require_binaries /sbin/mkfs.xfs
 }
 
 depends() {
@@ -18,8 +18,8 @@ installkernel() {
 }
 
 install() {
-    dracut_install /usr/bin/mount
-    dracut_install /usr/bin/umount
-    dracut_install /usr/sbin/mkfs.xfs
+    dracut_install /bin/mount
+    dracut_install /bin/umount
+    dracut_install /sbin/mkfs.xfs
     inst_hook pre-pivot 10 "$moddir/mount-overlayroot.sh"
 }
